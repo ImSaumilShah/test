@@ -111,24 +111,7 @@ public class HomeScreen extends AppCompatActivity implements OnMapReadyCallback,
         Log.d("onmapready", "onmapready");
     }
 
-    private void gotoLocationZoom(double lat, double lng, float zoom,String title) {
-        if(searchmarker != null){
-            searchmarker.remove();
-        }
-        LatLng latLng = new LatLng(lat, lng);
-        searchmarker = mGoogleMap.addMarker(new MarkerOptions().position(latLng).draggable(true).title(title));
-        mGoogleMap.setOnMarkerDragListener(this);
-        mGoogleMap.setOnMarkerClickListener(this);
-        CameraUpdate update = CameraUpdateFactory.newLatLngZoom(latLng, zoom);
-        mGoogleMap.moveCamera(update);
-    }
-
-    private void gotoLocation(double lat, double lng) {
-        LatLng latLng = new LatLng(lat, lng);
-        CameraUpdate update = CameraUpdateFactory.newLatLng(latLng);
-        mGoogleMap.moveCamera(update);
-    }
-
+ 
     @Override
     public void onConnected(@Nullable Bundle bundle) {
         locationRequest = LocationRequest.create();
@@ -187,9 +170,9 @@ public class HomeScreen extends AppCompatActivity implements OnMapReadyCallback,
                 return;
             }
             mGoogleMap.setMyLocationEnabled(true);
-            mGoogleMap.setOnMyLocationClickListener(this);
-            mGoogleMap.setOnMyLocationChangeListener(this);
-            mGoogleMap.setOnMapClickListener(this);
+            //mGoogleMap.setOnMyLocationClickListener(this);
+           // mGoogleMap.setOnMyLocationChangeListener(this);
+            //mGoogleMap.setOnMapClickListener(this);
 //            mGoogleMap.clear();
 //            mGoogleMap.addMarker(new MarkerOptions().position(latLng1).title("You're Here"));
             Log.d("lat", String.valueOf(location.getLatitude()));
@@ -197,63 +180,27 @@ public class HomeScreen extends AppCompatActivity implements OnMapReadyCallback,
         }
     }
 
-    @Override
-    public void onMyLocationClick(@NonNull Location location) {
-        if(mymarker !=null){
-            mymarker.remove();
-        }
+//     @Override
+//     public void onMyLocationClick(@NonNull Location location) {
+//         if(mymarker !=null){
+//             mymarker.remove();
+//         }
 
-        LatLng latLng1 = new LatLng(location.getLatitude(), location.getLongitude());
-        mymarker = mGoogleMap.addMarker(new MarkerOptions()
-                .position(latLng1)
-                .title("You're Here"));
-    }
+//         LatLng latLng1 = new LatLng(location.getLatitude(), location.getLongitude());
+//         mymarker = mGoogleMap.addMarker(new MarkerOptions()
+//                 .position(latLng1)
+//                 .title("You're Here"));
+//     }
 
-    @Override
-    public void onMyLocationChange(Location location) {
-        if(mymarker != null) {
-            mymarker.remove();}
-            LatLng latLng1 = new LatLng(location.getLatitude(), location.getLongitude());
-            mymarker =  mGoogleMap.addMarker(new MarkerOptions().position(latLng1).title("You're Here"));
-    }
+//     @Override
+//     public void onMyLocationChange(Location location) {
+//         if(mymarker != null) {
+//             mymarker.remove();}
+//             LatLng latLng1 = new LatLng(location.getLatitude(), location.getLongitude());
+//             mymarker =  mGoogleMap.addMarker(new MarkerOptions().position(latLng1).title("You're Here"));
+//     }
 
-    @Override
-    public void onMarkerDragStart(Marker marker) {
-
-    }
-
-    @Override
-    public void onMarkerDrag(Marker marker) {
-
-    }
-
-    @Override
-    public void onMarkerDragEnd(Marker marker) {
-        LatLng latLng =  marker.getPosition();
-        try {
-            List<Address> newaddress = new Geocoder(this).getFromLocation(latLng.latitude,latLng.longitude,1);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override
-    public boolean onMarkerClick(Marker marker) {
-        if(!Objects.equals(marker.getTitle(), "You're Here")){
-    markerclickcheck = 1;
-    locationdetails.setVisibility(View.VISIBLE);
-    detailLatLng =  marker.getPosition();
-    Log.d("detaillatlong","Details are : "  + detailLatLng);
-        }
-        return false;
-    }
-
-    @Override
-    public void onMapClick(LatLng latLng) {
-        if(locationdetails.getVisibility()==View.VISIBLE){
-            locationdetails.setVisibility(View.GONE);
-        }
-    }
+  
 }
 
 
