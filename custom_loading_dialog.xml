@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:gravity="center"
+              android:background="@android:color/transparent"
+              android:orientation="vertical">
+
+    <!--<com.felipecsl.gifimageview.library.GifImageView-->
+        <!--android:layout_width="@dimen/_50sdp"-->
+        <!--android:layout_height="@dimen/_50sdp"-->
+        <!--android:id="@+id/loader"-->
+        <!--android:src="@drawable/loader"/>-->
+
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/Loader"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:visibility="visible"
+        app:indicatorColor="@android:color/white"
+        app:indicatorName="LineScalePartyIndicator" />
+    <!--app:indicator="BallClipRotatePulse"-->
+
+    <!--<com.stegowl.jaimin.shakeshake.Lib.GifImageView-->
+    <!--android:id="@+id/iv_gif"-->
+    <!--android:visibility="gone"-->
+    <!--android:layout_gravity="center"-->
+    <!--android:layout_width="50dp"-->
+    <!--android:layout_height="50dp"/>-->
+    <!--<com.github.ybq.android.spinkit.SpinKitView-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--android:id="@+id/spin_kit"-->
+    <!--android:visibility="gone"-->
+    <!--style="@style/SpinKitView.Large.FadingCircle"-->
+    <!--android:layout_width="50dp"-->
+    <!--android:layout_height="50dp"-->
+    <!--android:layout_gravity="center"-->
+    <!--app:SpinKit_Color="@android:color/white" />-->
+    <!--style="@style/Base.Widget.AppCompat.ProgressBar"-->
+    <!--<ProgressBar-->
+    <!--android:id="@+id/progressBar"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_gravity="center_horizontal"-->
+    <!--style="@style/Widget.AppCompat.ProgressBar"-->
+    <!--android:theme="@style/CircularProgress"-->
+    <!--android:layout_height="wrap_content" />-->
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Loader"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="Loading..."
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="gone"/>
+
+</LinearLayout>

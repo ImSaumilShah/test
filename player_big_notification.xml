@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_100sdp"
+    android:background="@color/black"
+    android:orientation="horizontal">
+    <!--android:layout_below="@+id/headernotification"-->
+    <RelativeLayout
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_100sdp">
+
+        <ImageView
+            android:id="@+id/player_album_art"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY" />
+
+        <ProgressBar
+        android:id="@+id/player_progress_bar"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_centerInParent="true"
+            android:indeterminateDrawable="@drawable/loading_animation"
+        android:indeterminateDuration="1500" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/_44sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:orientation="vertical"
+            android:layout_marginEnd="@dimen/_44sdp">
+
+            <TextView
+                android:id="@+id/player_song_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_12sdp"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:layout_marginRight="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:ellipsize="marquee"
+                android:scrollHorizontally="true"
+                android:textAllCaps="true"
+                android:gravity="top|start"
+                android:singleLine="true"
+                fontPath="fonts/Avenirmedium.ttf"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_12sdp"
+                tools:ignore="MissingPrefix" />
+
+            <TextView
+                android:id="@+id/player_author_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_12sdp"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:ellipsize="marquee"
+                android:scrollHorizontally="true"
+                android:textAllCaps="true"
+                android:layout_marginRight="@dimen/_12sdp"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_1sdp"
+                android:layout_marginBottom="@dimen/_4sdp"
+                android:singleLine="true"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/_7sdp"
+                android:layout_marginStart="@dimen/_12sdp" />
+
+            <!--<TextView-->
+                <!--android:id="@+id/player_albumname"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="12dp"-->
+                <!--android:layout_marginTop="1dp"-->
+                <!--android:singleLine="true"-->
+                <!--android:text=""-->
+                <!--android:textColor="@android:color/white"-->
+                <!--android:textSize="14sp" />-->
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/player_close"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:padding="@dimen/_8sdp"
+            android:layout_gravity="end"
+            android:scaleType="fitXY"
+            android:src="@drawable/cutnotification" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="@dimen/_48sdp"
+            android:background="@android:color/darker_gray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_48sdp"
+            android:layout_gravity="bottom"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/player_previous"
+                android:layout_width="@dimen/_40sdp"
+                android:padding="@dimen/_8sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/notification_rewors" />
+
+            <ImageView
+                android:id="@+id/player_pause"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:padding="@dimen/_8sdp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/notification_play" />
+
+            <ImageView
+                android:id="@+id/player_play"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:scaleType="fitCenter"
+                android:padding="@dimen/_8sdp"
+                android:src="@drawable/notification_pause"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/player_next"
+                android:layout_width="@dimen/_40sdp"
+                android:padding="@dimen/_8sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/notification_forword" />
+        </LinearLayout>
+    </FrameLayout>
+
+</LinearLayout>
+</RelativeLayout>
